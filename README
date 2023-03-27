@@ -1,0 +1,72 @@
+Included are several implementations of a recursive algorithm to calculate the
+nth Fibonacci number, along with invoking shell scripts for each.
+
+You may implement your assignments in any of the following languages:
+    * C17 (The compiler, GCC 11.2.0, also supports the upcoming C2x standard.)
+    * Python 3.10.3
+    * Java 17.0.2
+    * Node.js 16.17.0 (TypeScript 4.8.2 is also installed.)
+    * Clojure 1.11.1
+    * Kotlin 1.7.10 (This is JVM-backed Kotlin, not Kotlin/Native.)
+
+To make automated grading possible, you will also need to submit two short
+shell scripts: one to compile your submission, one to run it. For example, all
+of the included Fibonacci implementations can be run using:
+
+    >$ ./compile.sh
+    >$ ./run.sh 12
+    144
+
+Furthermore:
+    * For record-keeping purposes, you must submit only original source files.
+      Any directories, pre-compiled files, or compressed files will be ignored.
+    * You may not use *any* third party libraries (and your script won't have
+      Internet access when it's run, so you can't use apt/pip/npm/etc. to
+      install them), even if they are installed on Cal Poly's Unix servers.
+
+Everything you need to know about shell scripts to write your own script:
+    * Every shell script should start with a "shebang", which tells the OS how
+      to execute the file. To intrepret your script using Bash, which is the
+      default shell in this class's Linux grading environment:
+
+        #!/bin/sh
+
+    * In Bash, basically every value is a string. Bash interprets certain
+      strings as integers, depending on the context, and it has limited support
+      for associative arrays.
+
+    * In Bash, a variable is declared as follows (note the lack of spaces):
+
+        mystr="foo"
+
+    * In Bash, a variable is referenced by prefacing it with a dollar sign:
+
+        $mystr
+
+    * In Bash, a program is invoked in the same way as at the command prompt:
+
+        echo "Hello, world!"
+
+    * ...and variables can be used as arguments:
+
+        echo $mystr
+
+    * ...but, to ensure that a variable's value is treated as one argument, it
+      should quoted (in case it evaluates to a string containing spaces):
+
+        echo "$mystr"
+
+    * In bash, the command line arguments are variables numbered from 1:
+
+        $1, $2, $3, ...
+
+    * So, a Bash script to run your Python submission might look like:
+
+        #!/bin/sh
+        python3 my_program.py "$1"
+
+      Which says, "This is a Bash script. Run my_program.py through the Python
+      interpreter, passing it the same first argument that was passed to you."
+
+Everything you don't need to know about Bash scripts to write your own script:
+    http://www.tldp.org/LDP/abs/html/index.html
